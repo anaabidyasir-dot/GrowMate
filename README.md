@@ -67,7 +67,6 @@ Lihat juga [tampilan desktop](docs/screenshots/opportunity-desktop.png) dan [kon
 
 ## Dokumentasi
 
-- [Catatan perubahan versi](CHANGELOG.md)
 - [Panduan demonstrasi untuk juri](docs/DEMO.md)
 - [Daftar fitur dan batasan](docs/FEATURES.md)
 - [Arsitektur dan penyimpanan](docs/ARCHITECTURE.md)
