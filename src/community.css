@@ -1,0 +1,114 @@
+/* Aktivitas komunitas dan penyesuaian responsif. Semua interaksi dapat diakses keyboard. */
+.gm-icon-only {min-width:36px;justify-content:center;padding-inline:8px}
+.gm-icon-only:focus-visible,.gm-soft-icon:focus-visible,.gm-history-link:focus-visible,.gm-peer-item:focus-visible,.gm-mini-action:focus-visible,.gm-material-utility button:focus-visible{outline:3px solid #62b4e2;outline-offset:3px}
+.gm-detail-utility,.gm-study-utility{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.gm-study-utility{margin:0}
+.gm-material-utility{display:flex;gap:6px;justify-content:flex-end;margin:12px 0 -2px}
+.gm-material-utility button{width:34px;height:34px;display:grid;place-items:center;color:#547d97;border:1px solid #e0eaf1;background:#f6f9fc;border-radius:9px}
+.gm-material-utility button:hover{background:#e6f3fa;color:#07557f}
+.gm-profile-metrics-desktop{display:none!important}
+.gm-profile-metrics-mobile{display:grid}
+@media(min-width:1000px){
+ .profile-banner{position:relative;overflow:hidden}
+ .profile-banner .profile-content{padding-right:min(49%,485px);min-height:274px}
+ .profile-banner .gm-profile-metrics-desktop{display:grid!important;position:absolute;top:162px;right:24px;width:min(43%,435px);margin:0;gap:11px;z-index:2}
+ .profile-banner .gm-profile-metrics-desktop button{background:#f9fcfe;border-color:#ddeaf2}
+ .profile-page>.gm-profile-metrics-mobile{display:none}
+ .profile-banner .profile-description{max-width:470px}
+}
+.gm-peer-profile{margin:-22px -23px -25px;min-width:0}
+.gm-peer-profile .peer-profile-content{padding-bottom:14px}
+.gm-peer-heading{display:flex;gap:17px;align-items:center;margin-top:-36px;position:relative;z-index:1}
+.gm-peer-heading .peer-profile-photo{flex:0 0 86px;margin:0}
+.gm-peer-heading .gm-peer-name{padding-top:35px;min-width:0}
+.gm-peer-name h3{font-size:20px;line-height:1.3;margin-bottom:3px;overflow-wrap:anywhere}
+.gm-peer-name .peer-handle{margin:0 0 8px}
+.gm-peer-name .profile-program{margin-bottom:3px}
+.gm-peer-profile .peer-bio{margin-top:13px;font-weight:500;line-height:1.65}
+.gm-peer-counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:17px 0}
+.gm-peer-counts>div{border:1px solid #e2ebf1;background:#f7fafc;border-radius:10px;padding:13px 10px;min-width:0}
+.gm-peer-counts strong{display:block;color:#153a55;font-size:19px}
+.gm-peer-counts span{display:block;color:#728da1;font-size:11px}
+.gm-peer-actions{display:flex;align-items:center;gap:8px}
+.gm-peer-actions .btn{flex:1;min-height:42px}
+.gm-soft-icon{flex:0 0 42px;height:42px;display:grid;place-items:center;border-radius:10px;border:1px solid #dce8f0;background:#f6fafc;color:#4c6d81}
+.gm-soft-icon:hover{background:#e9f5fc;color:#006ba1}
+.gm-block-icon:hover{color:#ac3653;background:#fff0f3;border-color:#f2bdc9}
+.gm-peer-tabs{display:flex;overflow-x:auto;border-top:1px solid #e6edf3;border-bottom:1px solid #e6edf3;padding:8px 13px;gap:5px;scrollbar-width:thin}
+.gm-peer-tabs button{flex:1;white-space:nowrap;min-height:37px;border-radius:8px;padding:8px 12px;background:transparent;color:#6b8397;font-size:12px;font-weight:700}
+.gm-peer-tabs button.active{background:#e8f4fc;color:#055d8b}
+.gm-peer-tabs span{font-size:10px;color:#8aa5b5}
+.gm-peer-list{padding:12px 17px 20px;max-height:36dvh;overflow:auto}
+.gm-peer-item{position:relative;display:grid;text-align:left;gap:5px;width:100%;background:#fff;color:#24465b;padding:13px 39px 13px 12px;border:1px solid #e5edf2;border-radius:11px;margin-bottom:9px}
+.gm-peer-item:hover{background:#f4f9fc;border-color:#acd6ee}
+.gm-peer-item>span{font-size:10px;color:#5991ad;font-weight:700}
+.gm-peer-item strong{font-size:13px}
+.gm-peer-item small{font-size:11px;font-weight:400;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#7991a3}
+.gm-peer-item>.icon{position:absolute;right:11px;top:50%;transform:translateY(-50%)}
+.gm-peer-empty,.gm-history-empty{color:#7793a5;background:#f6f9fb;padding:23px 15px;border-radius:11px;text-align:center;font-size:12px}
+.gm-peer-about{padding:7px 9px 18px}
+.gm-peer-about h4{font-size:13px;margin:8px 0}
+.gm-peer-about p{font-size:12px;line-height:1.6;color:#6e8597;margin-bottom:18px}
+.gm-history-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
+.gm-history-tabs button{border-radius:9px;background:#f4f8fb;color:#6c8598;padding:9px 12px;font-size:12px;font-weight:700;min-height:38px;border:1px solid transparent}
+.gm-history-tabs button.active{background:#e6f4fc;color:#065c89;border-color:#c3e1f1}
+.gm-history-tabs button span{margin-left:3px;opacity:.7}
+.gm-history-list{display:grid;gap:8px}
+.gm-history-entry{display:flex;gap:12px;align-items:center;border:1px solid #e2ebf2;border-radius:12px;padding:12px;background:#fff;min-width:0}
+.gm-history-icon{width:39px;height:39px;border-radius:10px;background:#eaf5fb;color:#176e9c;flex:0 0 39px;display:grid;place-items:center}
+.gm-history-entry>div{display:grid;gap:3px;min-width:0;flex:1}
+.gm-history-entry strong{font-size:12px;overflow-wrap:anywhere}
+.gm-history-entry small{font-size:11px;line-height:1.45;color:#8196a6}
+.gm-history-link{color:#075f92;font-size:12px;flex-shrink:0;font-weight:750;padding:10px;border-radius:8px;background:#eef7fc}
+.gm-history-link:hover{background:#d8ecf9}
+.gm-report-note{font-size:12px;line-height:1.65;color:#607f92;margin:0}
+.xp-op-actions{justify-content:initial;gap:7px;flex-wrap:wrap}
+.xp-op-actions .btn{flex:1;min-width:110px}
+.xp-op-actions .xp-icon-action{display:grid;place-items:center;flex:0 0 36px;width:36px;min-height:36px;height:36px;padding:0}
+.gm-xp-detail-actions{justify-content:flex-start}
+.gm-mini-action svg{flex-shrink:0}
+.xp-x-button{width:36px!important;height:36px!important;padding:0!important;font-size:24px!important;line-height:1!important;display:grid;place-items:center;flex-shrink:0}
+.xp-scholarship .xp-scholarship-mark{overflow:hidden;border:1px solid #e1ebf4;background:#fff;width:62px;height:62px;flex-basis:62px;padding:6px}
+.xp-scholarship-mark img{width:100%;height:100%;object-fit:contain;display:block}
+html[data-theme="dark"] :is(.gm-peer-item,.gm-history-entry,.gm-peer-counts>div,.gm-material-utility button,.gm-soft-icon,.gm-peer-empty,.gm-history-empty){background:#203248;color:#dceaf4;border-color:#354f63}
+html[data-theme="dark"] :is(.gm-peer-item small,.gm-history-entry small,.gm-peer-about p){color:#a5c3d7}
+html[data-theme="dark"] :is(.gm-peer-counts strong,.gm-peer-item strong){color:#e8f1f9}
+html[data-theme="dark"] :is(.gm-peer-tabs,.gm-peer-tabs button){border-color:#37516a}
+@media(max-width:650px){
+ .post-actions .gm-icon-only{min-width:30px;padding-inline:5px}
+ .post-actions{gap:4px}
+ .post-actions-left{gap:3px}
+ .gm-material-utility button{min-width:36px;height:36px}
+ .gm-peer-profile{margin:-22px -16px -25px}
+ .gm-peer-list{padding:10px 13px 18px;max-height:38dvh}
+ .gm-peer-heading{gap:11px}
+ .gm-peer-heading .peer-profile-photo{flex-basis:76px;width:76px;height:76px}
+ .gm-peer-heading .peer-profile-photo .avatar{width:76px;height:76px}
+ .gm-peer-name h3{font-size:17px}
+ .gm-peer-tabs{padding:7px 8px}
+ .gm-peer-tabs button{font-size:11px;padding:8px 6px}
+ .gm-history-entry{padding:10px;gap:8px}
+ .gm-history-icon{width:34px;height:34px;flex-basis:34px}
+ .gm-history-link{padding:8px}
+ .gm-study-utility .btn span{display:none}
+ .xp-op-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .xp-op-actions .btn{grid-column:1/-1;min-width:0;width:100%;justify-content:center}
+ .xp-op-actions .xp-icon-action{width:100%;min-width:0;flex:initial}
+ .gm-xp-detail-actions{display:flex}
+ .gm-xp-detail-actions .btn{flex:1}
+}
+@media(prefers-reduced-motion:reduce){.gm-peer-item,.gm-history-link,.gm-soft-icon{transition:none}}
+
+.gm-visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Konfirmasi tahap kedua setelah laporan: tidak menambah tombol pada kartu. */
+.gm-report-followup{display:grid;gap:14px;line-height:1.6}
+.gm-report-followup>p{margin:0;color:#254d67}
+.gm-report-followup .dialog-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+.gm-report-followup .dialog-actions .btn{flex:1 1 175px;min-height:44px}
+@media(max-width:550px){
+  .gm-peer-counts{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .gm-peer-counts>div{padding:10px}
+  .xp-op-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+html[data-theme="dark"] .gm-report-followup>p{color:#d7eafa}

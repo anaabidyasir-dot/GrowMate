@@ -1,0 +1,13 @@
+node_modules/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+coverage/
+
+.env
+.env.*
+!.env.example
+
+*.zip

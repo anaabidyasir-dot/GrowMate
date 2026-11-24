@@ -1,0 +1,184 @@
+/* GrowMate — targeted refinements, Nov 2026.
+   Loaded after the legacy styles so existing components and branding stay intact. */
+:root{color-scheme:light;scroll-behavior:smooth}
+:where(button,a,input,select,textarea):focus-visible{outline:3px solid #5bb6eb;outline-offset:3px}
+button:disabled{cursor:not-allowed;opacity:.55}
+
+/* Desktop avatar/chevron is a true menu. Also available on phones. */
+.gm-account-wrap{position:relative;display:flex;align-items:center}
+.account-button{border-radius:10px;padding:7px 9px;min-height:44px;transition:background-color .2s,color .2s}
+.account-button:hover,.account-button[aria-expanded="true"]{background:#ebf5fc;color:#045987}
+.account-button[aria-expanded="true"]>.icon{transform:rotate(180deg)}
+.account-button>.icon{transition:transform .18s}
+.gm-account-menu{position:absolute;z-index:55;right:0;top:calc(100% + 9px);width:215px;border:1px solid #dbe8f1;border-radius:13px;box-shadow:0 17px 42px #06395d24;background:#fff;padding:7px;animation:gm-menu-in .16s ease-out}
+.gm-account-menu button{display:flex;align-items:center;gap:11px;width:100%;min-height:42px;padding:11px 12px;border-radius:8px;background:transparent;color:#27495f;font-size:12px;text-align:left;font-weight:700}
+.gm-account-menu button:hover,.gm-account-menu button:focus-visible{background:#eaf6fc;color:#006d9e}
+.gm-account-menu button[data-action="logout"]{color:#ab4653}
+.gm-account-menu-divider{margin:5px 8px;border-top:1px solid #e3edf3}
+@keyframes gm-menu-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+
+/* Consistent plus button: blue at rest, navy on interaction. */
+.gm-fab-area .mobile-fab,.xp-floating-action{background-color:#0876b5!important;border-radius:15px!important;border:0!important;transition:background-color .22s ease,transform .22s ease,border-radius .22s ease,box-shadow .22s ease!important}
+.gm-fab-area:hover .mobile-fab,.gm-fab-area:focus-within .mobile-fab,.gm-fab-area .mobile-fab:hover,.gm-fab-area .mobile-fab:active,.xp-floating-action:is(:hover,:focus-visible,:active){background-color:#034c79!important;border-radius:15px!important;transform:translateY(-2px);box-shadow:0 13px 27px #003f6b4f!important}
+.gm-fab-area .mobile-fab:active,.xp-floating-action:active{transform:translateY(0) scale(.97)}
+.gm-fab-tooltip{white-space:nowrap;max-width:205px}
+/* Mobile Opportunity uses exactly the same in-hero primary CTA as desktop. */
+.xp-share-fab{display:none!important}
+.xp-share-hero .btn[data-action="xp-share"]{display:inline-flex!important;gap:10px;align-items:center;justify-content:center;min-height:47px;transition:background-color .2s,color .2s,transform .2s,box-shadow .2s}
+.xp-share-hero .btn[data-action="xp-share"]:hover,.xp-share-hero .btn[data-action="xp-share"]:focus-visible{background:#d9effc;color:#003e65;transform:translateY(-2px);box-shadow:0 7px 18px #001d3240}
+/* Visible filter glyph: mobile dropdown still receives the entire tap target. */
+.gm-feed-filter{position:relative;isolation:isolate}
+.gm-feed-filter .icon{display:block!important;color:#096a9e!important;stroke-width:2.1;pointer-events:none;flex-shrink:0}
+.gm-feed-filter:focus-within,.gm-feed-filter:hover{border-color:#69b6da;box-shadow:0 3px 11px #2a6b8d17}
+.gm-feed-filter select{z-index:2}
+
+/* Four archive tabs remain a single row; touch icons have accessible labels. */
+.gm-material-archive-card{display:flex;flex-direction:column}
+.gm-material-archive-card>div:last-child{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:auto}
+.gm-material-archive-card>div:last-child button:first-child{margin-right:auto}
+.gm-material-archive-meta{display:flex;align-items:center;gap:6px;margin:10px 0 19px;color:#6b8495;font-size:11px}
+.archive-tabs button{transition:color .18s,background-color .18s,border-color .18s}
+.archive-tabs button:hover{background:#f1f8fd;color:#075e92}
+
+/* Campus editor: compact but real editable data table. */
+.gm-admin-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.gm-admin-actions .xp-delete-link{padding:8px 10px;min-height:36px}
+.gm-admin-publish .xp-admin-row{gap:15px;min-width:0}
+
+/* Settings as a full, navigable page instead of a crowded dialog. */
+.gm-settings-page{max-width:1100px!important;min-width:0}
+.gm-settings-heading{margin:0 0 29px}
+.gm-settings-heading h1{font-size:clamp(27px,3.1vw,35px);margin:8px 0 7px;letter-spacing:-.045em;color:#17354a}
+.gm-settings-heading>p:last-child{font-size:13px;color:#7890a2;margin:0}
+.gm-settings-layout{display:grid;grid-template-columns:205px minmax(0,1fr);gap:30px;align-items:start}
+.gm-settings-index{display:grid;gap:4px;position:sticky;top:94px;padding:11px;background:#fff;border:1px solid #e5eef4;border-radius:14px;box-shadow:0 7px 19px #083e5b08}
+.gm-settings-index button{border-radius:9px;background:transparent;display:flex;align-items:center;gap:10px;min-height:44px;text-align:left;padding:11px;color:#59778b;font-size:12px;font-weight:700}
+.gm-settings-index button:hover,.gm-settings-index button:focus-visible{background:#eaf5fc;color:#095a8c}
+.gm-settings-content{display:grid;gap:19px;min-width:0}
+.gm-setting-panel{background:#fff;border:1px solid #dfebf2;box-shadow:0 9px 29px #003b5a08;border-radius:17px;padding:25px 27px;min-width:0;scroll-margin-top:95px}
+.gm-setting-heading{display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid #eaf0f5;padding-bottom:20px;margin-bottom:5px}
+.gm-setting-heading>.icon{color:#0d76aa;background:#eaf6fc;box-sizing:content-box;padding:12px;border-radius:12px;flex:0 0 auto}
+.gm-setting-heading h2,.gm-setting-privacy h2{font-size:18px;color:#1a3d55;letter-spacing:-.025em;margin:0 0 6px}
+.gm-setting-heading p,.gm-setting-privacy p{color:#758ea0;font-size:12px;line-height:1.65;margin:0}
+.gm-setting-row{display:flex;align-items:center;justify-content:space-between;gap:17px;border-bottom:1px solid #eff3f6;padding:20px 0}
+.gm-setting-row:last-child{border:0;padding-bottom:3px}
+.gm-setting-row>div:first-child{flex:1;min-width:0}
+.gm-setting-row strong,.gm-support-row strong,.gm-campus-connect strong{display:block;font-size:13px;color:#24455a}
+.gm-setting-row small,.gm-support-row small,.gm-campus-connect small{display:block;font-size:11px;line-height:1.5;color:#8095a4;margin-top:5px}
+.gm-setting-choice{display:inline-flex;align-items:center;gap:3px;padding:4px;background:#eef4f8;border:1px solid #e2edf3;border-radius:11px;flex-shrink:0}
+.gm-setting-choice button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;min-width:78px;padding:9px 11px;border-radius:8px;background:transparent;color:#58788d;font-size:11px;font-weight:750;white-space:nowrap}
+.gm-setting-choice button:hover{color:#006eaa;background:#f6fbfe}
+.gm-setting-choice button.chosen{background:#fff;color:#076caa;box-shadow:0 1px 7px #1745671b}
+.gm-setting-choice button[aria-pressed="true"]{outline:1px solid #cfe4f0}
+.gm-settings-empty{background:#f5f9fc;border:1px dashed #c8dae7;border-radius:11px;padding:17px 19px;color:#587589;font-size:12px;line-height:1.7;margin-top:19px}
+.gm-settings-footnote{color:#7e94a4;font-size:11px;line-height:1.7;margin:15px 0 0}
+.gm-campus-connect-list{margin-top:15px;display:grid;gap:11px}
+.gm-campus-connect,.gm-support-row{display:flex;justify-content:space-between;gap:14px;align-items:center;border:1px solid #e6eef4;border-radius:11px;background:#fbfdff;padding:16px}
+.gm-campus-connect>div,.gm-support-row>div{min-width:0;flex:1}
+.gm-status-text{color:#067a7b;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:750;white-space:nowrap}
+.gm-settings-form{padding:24px 0 26px;border-bottom:1px solid #edf2f6}
+.gm-settings-form:last-of-type{border:0;padding-bottom:8px}
+.gm-settings-form h3{font-size:14px;color:#27455a;margin:0 0 15px}
+.gm-current-email{color:#738da0;font-size:11px;margin:-5px 0 15px;overflow-wrap:anywhere}
+.gm-current-email strong{color:#385a71}
+.gm-settings-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-bottom:17px}
+.gm-settings-fields label{display:grid;gap:8px;color:#536e83;font-size:11px;font-weight:750;min-width:0}
+.gm-settings-fields input{display:block;width:100%;min-width:0;min-height:44px;padding:12px 13px;border:1px solid #dbe8f0;border-radius:10px;background:#fbfdff;color:#24445a;font-size:12px}
+.gm-settings-fields input:focus{border-color:#65b0d9;outline:2px solid #b8e3f6;outline-offset:1px}
+.gm-setting-privacy>p{max-width:650px}
+.gm-setting-footer{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-top:20px}
+.gm-setting-footer .subtle-danger{margin:0}
+.gm-support-row{margin-top:14px}
+.gm-support-row .btn{display:inline-flex;align-items:center;gap:7px}
+.gm-settings-page .btn-small{min-height:37px}
+
+@media(max-width:900px){
+ .gm-settings-layout{grid-template-columns:1fr;gap:16px}
+ .gm-settings-index{display:flex;overflow-x:auto;position:static;padding:7px;gap:3px}
+ .gm-settings-index button{flex-shrink:0;white-space:nowrap;min-height:40px}
+}
+@media(max-width:768px){
+ .gm-fab-area{right:6px;bottom:calc(76px + env(safe-area-inset-bottom))}
+ .gm-fab-area .gm-fab-tooltip{display:block!important}
+ .gm-feed-filter{width:46px!important;height:46px!important;flex-basis:46px!important;background:#fff;box-shadow:0 2px 8px #1b55731c;border:1px solid #c9e0ee!important}
+ .gm-feed-filter .icon{width:21px!important;height:21px!important;color:#006699!important;z-index:1;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+ .gm-feed-filter select{opacity:0!important;position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;height:100%!important;cursor:pointer}
+ .xp-share-hero{padding:24px 23px 26px}
+ .xp-share-hero .btn-white{font-size:13px;max-width:100%;padding:12px 17px}
+ .account-button{padding:5px;border-radius:12px}
+ .gm-account-menu{top:calc(100% + 13px);right:-4px}
+ .gm-settings-heading{margin-bottom:20px}
+ .gm-setting-panel{padding:21px 18px;scroll-margin-top:75px}
+ .gm-settings-content{gap:14px}
+}
+@media(max-width:580px){
+ .gm-feed-filter .icon{display:block!important}
+ .archive-tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px!important;justify-content:stretch}
+ .archive-tabs button{gap:3px!important;padding:9px 3px!important;min-height:51px!important;max-width:100%;flex:unset!important;flex-direction:column;min-width:0}
+ .archive-tabs button em{display:block!important;font-size:10px!important}
+ .archive-tabs button .icon{width:18px;height:18px}
+ .gm-setting-row{align-items:flex-start;flex-direction:column;gap:13px}
+ .gm-setting-choice{max-width:100%;width:100%;display:flex}
+ .gm-setting-choice button{flex:1;min-width:0}
+ .gm-setting-row .switch{align-self:flex-start}
+ .gm-settings-fields{grid-template-columns:1fr}
+ .gm-campus-connect,.gm-support-row{flex-wrap:wrap;align-items:flex-start}
+ .gm-support-row .btn{width:100%;justify-content:center}
+ .gm-admin-publish .xp-admin-row{display:flex;flex-wrap:wrap}
+ .gm-admin-actions{width:100%;justify-content:flex-start}
+ .xp-share-hero h2{font-size:clamp(25px,7vw,32px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .gm-account-menu{animation:none}
+ .gm-fab-area .mobile-fab,.gm-fab-tooltip,.xp-share-hero .btn-white,.gm-setting-choice button{transition:none!important;transform:none!important}
+}
+
+/* Theme palette respects existing GrowMate blues, not an inverted CSS filter. */
+html[data-theme="dark"]{color-scheme:dark;background:#0c1624;--paper:#152438;--line:#2c4255;--shadow:0 13px 36px #00000022}
+html[data-theme="dark"] body{background:#0c1624;color:#e6f0f8}
+html[data-theme="dark"] .app-shell,html[data-theme="dark"] .app-workspace{background:#0c1624;color:#e6f0f8}
+html[data-theme="dark"] :is(.sidebar,.topbar,.bottom-nav,.gm-account-menu,.gm-settings-index,.gm-setting-panel,.daily-card,.quick-question,.post-card,.learning-intro,.material-card,.archive-card,.profile-banner,.profile-learning,.study-main,.study-side-box,.modal-panel,.modal-header,.xp-op-card,.xp-dialog,.xp-chat-layout,.xp-chat-list,.xp-chat-panel,.xp-chat-head,.xp-chat-compose,.xp-admin-section,.xp-admin-intro,.xp-admin-stats,.xp-scholarship,.xp-empty,.xp-campus-box,.schedule-item,.gm-campus-connect,.gm-support-row){background:#152438!important;border-color:#2b4256!important;color:#e4edf6!important}
+html[data-theme="dark"] .xp-page{--xp-ink:#e4edf6;--xp-sub:#a6c0d4;--xp-line:#31495f;--xp-blue:#7acfff;--xp-soft:#203b4e}
+html[data-theme="dark"] :is(h1,h2,h3,h4,strong,.post-author strong,.post-main h3,.alert-tile strong,.note-tile strong,.schedule-item strong,.gm-setting-row strong,.gm-support-row strong,.gm-campus-connect strong,.gm-settings-heading h1,.gm-setting-heading h2,.gm-setting-privacy h2,.gm-settings-form h3,.gm-account-menu button,.xp-op-body h3){color:#ecf5ff!important}
+html[data-theme="dark"] :is(p,small,.muted,.section-head p,.post-main p,.post-author span,.gm-setting-heading p,.gm-setting-row small,.gm-settings-footnote,.gm-settings-heading>p:last-child,.xp-footnote,.xp-op-summary,.xp-heading p:last-child,.xp-section-head p,.profile-description,.profile-bio,.archive-card p){color:#a8c0d2!important}
+html[data-theme="dark"] :is(.nav-link,.gm-settings-index button,.xp-contact,.gm-account-menu button,.daily-tab,.archive-tabs button,.xp-chip,.xp-contact-filter button){color:#bdd1e0}
+html[data-theme="dark"] :is(.nav-link.active,.gm-settings-index button:hover,.gm-account-menu button:hover,.xp-contact:hover,.xp-contact.selected,.xp-chip.active,.archive-tabs button:hover){background:#203b51!important;color:#9ad9ff!important}
+html[data-theme="dark"] :is(.searchbar,.gm-setting-choice,.gm-settings-empty,.xp-contact-filter button,.xp-kind,.category-label,.xp-icon-action,.xp-detail-meta,.schedule-lead,.note-add,.notification-list,.xp-chat-placeholder,.xp-chat-message-area,.xp-campus-inside,.xp-campus-contact,.gm-account-menu-divider){background:#203248!important;border-color:#37516a!important;color:#b4daf3!important}
+html[data-theme="dark"] :is(.alert-tile,.note-tile){background:#23354a!important;border-color:#365067!important}
+html[data-theme="dark"] .alert-tile.coral{background:#352e34!important}
+html[data-theme="dark"] .alert-tile.blue{background:#19354a!important}
+html[data-theme="dark"] :is(input:not([type="checkbox"]):not([type="file"]),textarea,select){background:#101f2e!important;color:#e6f1fb!important;border-color:#3b566c!important}
+html[data-theme="dark"] :is(input,textarea)::placeholder{color:#8ca7bb!important}
+html[data-theme="dark"] .gm-setting-choice button.chosen{background:#34658a!important;color:#fff!important;outline-color:#5489a8}
+html[data-theme="dark"] :is(.gm-setting-row,.gm-settings-form,.gm-setting-heading,.xp-op-actions,.post-actions,.daily-tabs,.xp-admin-row,.xp-chat-head){border-color:#2e4558!important}
+html[data-theme="dark"] :is(.xp-message-bubble,.xp-campus-mini-avatar,.xp-contact-avatar>span){background:#254861!important;color:#e1f2fc!important}
+html[data-theme="dark"] :is(.btn-outline,.xp-page .btn-outline){background:#182e43!important;color:#a6deff!important;border-color:#4d7290!important}
+html[data-theme="dark"] :is(.btn-primary,.xp-page .btn-primary){background:#0877bb!important;color:#fff!important}
+html[data-theme="dark"] :is(.xp-hero,.context-welcome,.profile-cover){background:#073c63!important;color:#fff!important}
+html[data-theme="dark"] .xp-hero :is(h2,p),html[data-theme="dark"] .context-welcome :is(h2,h3,p),html[data-theme="dark"] .xp-hero strong{color:#fff!important}
+html[data-theme="dark"] .xp-page .btn-white{background:#fff!important;color:#065a88!important}
+html[data-theme="dark"] .xp-page .btn-white:hover{background:#deeffb!important}
+html[data-theme="dark"] .avatar:not(:has(img)){outline:1px solid #86b0c5}
+html[data-theme="dark"] .gm-feed-filter{background:#1c3347!important}
+html[data-theme="dark"] .gm-feed-filter .icon{color:#9bdcff!important}
+html[data-theme="dark"] .gm-account-menu button[data-action="logout"]{color:#ffb9c1!important}
+html[data-theme="dark"] .gm-settings-index button:focus-visible{outline-color:#65b6e8}
+
+/* All primary creation actions offer the same clear hover feedback on desktop. */
+.welcome-top .btn[data-action="create-post"],
+.page-heading .btn[data-action="create-material"],
+.xp-new-group {
+  transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.welcome-top .btn[data-action="create-post"]:is(:hover,:focus-visible),
+.page-heading .btn[data-action="create-material"]:is(:hover,:focus-visible),
+.xp-new-group:is(:hover,:focus-visible) {
+  background-color:#034c79!important;
+  transform:translateY(-2px);
+  box-shadow:0 9px 21px rgba(0,49,84,.22);
+}
+@media(prefers-reduced-motion:reduce){
+  .welcome-top .btn[data-action="create-post"],
+  .page-heading .btn[data-action="create-material"],
+  .xp-new-group {transition:none!important;transform:none!important}
+}

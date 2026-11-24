@@ -1,0 +1,175 @@
+/* GrowMate 2026-11-23: compact archive and contextual mobile create actions.
+   New rules intentionally load last to protect these components from legacy
+   generic card selectors. */
+
+/* Archive: always use a vertical content flow; never inherit the older
+   .archive-card > div { display:flex } layout that collapsed saved cards. */
+.profile-archive,.profile-archive .archive-grid{min-width:0;width:100%;max-width:100%}
+.profile-archive .archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.profile-archive .gm-archive-entry{
+  display:flex;flex-direction:column;align-items:stretch;box-sizing:border-box;
+  min-width:0;max-width:100%;width:100%;min-height:155px;
+  padding:19px 20px 16px;border:1px solid #dde8f1;border-radius:15px;
+  background:#fff;box-shadow:0 3px 13px rgba(15,66,99,.045);
+}
+.profile-archive .gm-archive-entry>.category-label{
+  display:inline-flex;align-self:flex-start;flex:0 0 auto;max-width:100%;
+  font-size:11px;line-height:1.3;white-space:normal;overflow-wrap:break-word;
+}
+.profile-archive .gm-archive-entry h3{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+  overflow:hidden;min-width:0;width:100%;max-width:100%;
+  margin:13px 0 17px;font-size:16px;line-height:1.45;
+  font-weight:750;letter-spacing:-.018em;color:#15384f;
+  overflow-wrap:break-word;word-break:normal;white-space:normal;
+}
+.profile-archive .gm-archive-entry .gm-archive-excerpt{
+  margin:-7px 0 17px;color:#6c8596;font-size:12px;line-height:1.6;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+}
+.profile-archive .gm-archive-entry .gm-archive-meta{
+  display:flex;align-items:center;gap:6px;margin:-4px 0 17px;
+  color:#647f92;font-size:11px;line-height:1.45;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions{
+  display:flex;align-items:center;gap:9px;min-width:0;width:100%;
+  margin-top:auto;padding-top:13px;border-top:1px solid #e7eff5;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions button{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  flex:0 0 auto;min-height:40px;min-width:40px;max-width:100%;
+  box-sizing:border-box;border-radius:10px;background:transparent;
+  font-size:12px;font-weight:750;line-height:1.2;cursor:pointer;
+  transition:background-color .2s,border-color .2s,color .2s,transform .2s;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-detail{
+  margin-right:auto;min-width:0;padding:9px 12px;
+  border:1px solid #cbdfea;color:#056d9f;background:#f8fcfe;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-detail:hover{
+  background:#e8f5fc;border-color:#80b9da;color:#034b78;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-edit{
+  border:1px solid #dbe7ef;padding:8px 11px;color:#456a80;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-edit:hover{background:#edf7fc;color:#055f95}
+.profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-remove{
+  width:42px;min-width:42px;height:42px;padding:0;
+  color:#b84e55;border:1px solid #f3dce0;background:#fff;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-remove:hover{
+  color:#a12834;background:#fff0f0;border-color:#efb7bf;
+}
+.profile-archive .gm-archive-entry .gm-archive-actions button:active{transform:scale(.96)}
+.profile-archive .gm-archive-entry .gm-archive-actions .icon{flex:0 0 auto}
+@media(max-width:680px){
+  .profile-archive .archive-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .profile-archive .gm-archive-entry{min-height:141px;padding:16px 17px 14px}
+  .profile-archive .gm-archive-entry h3{font-size:15px;line-height:1.45;margin:12px 0 15px}
+  .profile-archive .gm-archive-entry .gm-archive-actions button{min-height:44px}
+  .profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-remove{width:44px;height:44px;min-width:44px}
+}
+@media(max-width:359px){
+  .profile-archive .gm-archive-entry{padding:14px 13px}
+  .profile-archive .gm-archive-entry .gm-archive-actions{gap:7px}
+  .profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-detail{padding:9px 10px}
+  .profile-archive .gm-archive-entry .gm-archive-actions .gm-archive-edit span{display:none}
+}
+
+/* Mobile FAB tooltip must not occupy layout space or create an invisible
+   hover target. Its visual state is based on actual interaction. */
+@media(max-width:768px){
+  .gm-fab-area{
+    display:block;position:fixed;right:18px;bottom:calc(85px + env(safe-area-inset-bottom));
+    z-index:34;width:54px;height:54px;padding:0;
+  }
+  .gm-fab-area .mobile-fab{
+    position:relative;right:auto;bottom:auto;display:grid;place-items:center;
+    width:54px;height:54px;min-height:54px;padding:0;
+    border:0!important;border-radius:15px!important;background:#0876b5!important;
+    color:#fff;box-shadow:0 8px 22px rgba(4,68,112,.24)!important;
+    transition:background-color .22s ease,transform .22s ease,box-shadow .22s ease!important;
+  }
+  .gm-fab-area .gm-fab-tooltip{
+    display:block!important;position:absolute;top:50%;right:calc(100% + 12px);
+    box-sizing:border-box;width:max-content;max-width:min(205px,calc(100vw - 110px));
+    white-space:normal;padding:10px 13px;
+    border:1px solid #164b6a;border-radius:10px;
+    background:#073e60;color:white;box-shadow:0 8px 18px #00345922;
+    font-size:12px;font-weight:730;line-height:1.3;text-align:center;
+    pointer-events:none;opacity:0!important;visibility:hidden!important;
+    transform:translate(8px,-50%) scale(.96)!important;
+    transition:opacity .2s ease,transform .2s ease,visibility .2s!important;
+  }
+  .xp-ask .xp-new-group.xp-floating-action{
+    right:18px;bottom:calc(85px + env(safe-area-inset-bottom));
+    width:54px;height:54px;min-height:54px;min-width:54px;border:0!important;
+    background:#0876b5!important;border-radius:15px!important;
+    box-shadow:0 8px 22px rgba(4,68,112,.24)!important;
+    transition:background-color .22s ease,transform .22s ease,box-shadow .22s ease!important;
+  }
+  .xp-new-group.xp-floating-action .xp-floating-tip{
+    display:block!important; /* overrides legacy .xp-new-group span { display:none } */
+    position:absolute;top:50%;right:calc(100% + 12px);
+    width:max-content;max-width:min(205px,calc(100vw - 110px));
+    white-space:normal;padding:10px 13px;border-radius:10px;
+    font-size:12px;line-height:1.3;pointer-events:none;
+    opacity:0!important;visibility:hidden!important;
+    transform:translate(8px,-50%) scale(.96)!important;
+    transition:opacity .2s ease,transform .2s ease,visibility .2s!important;
+  }
+  /* Only while finger is held down or when keyboard focus is visibly active. */
+  .gm-fab-area:has(.mobile-fab:active) .gm-fab-tooltip,
+  .gm-fab-area:has(.mobile-fab:focus-visible) .gm-fab-tooltip,
+  .xp-floating-action:is(:active,:focus-visible) .xp-floating-tip{
+    opacity:1!important;visibility:visible!important;
+    transform:translate(0,-50%) scale(1)!important;
+  }
+  .gm-fab-area .mobile-fab:is(:active,:focus-visible),
+  .xp-ask .xp-new-group.xp-floating-action:is(:active,:focus-visible){
+    background:#034c79!important;transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(0,47,77,.32)!important;
+  }
+}
+/* Pointer hover is meaningful only on devices that truly support hover.
+   This avoids sticky mobile :hover after a tap. */
+@media(max-width:768px) and (hover:hover) and (pointer:fine){
+  .gm-fab-area:hover .gm-fab-tooltip,
+  .xp-floating-action:hover .xp-floating-tip{
+    opacity:1!important;visibility:visible!important;
+    transform:translate(0,-50%) scale(1)!important;
+  }
+  .gm-fab-area:hover .mobile-fab,
+  .xp-ask .xp-new-group.xp-floating-action:hover{
+    background:#034c79!important;transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(0,47,77,.32)!important;
+  }
+}
+@media(max-width:768px) and (hover:none){
+  /* Suppress legacy hover/focus-within styling on touch hardware. */
+  .gm-fab-area:hover:not(:has(.mobile-fab:active,:focus-visible)) .mobile-fab,
+  .xp-ask .xp-new-group.xp-floating-action:hover:not(:active,:focus-visible){
+    background:#0876b5!important;transform:none!important;
+    box-shadow:0 8px 22px rgba(4,68,112,.24)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .profile-archive .gm-archive-entry .gm-archive-actions button,
+  .gm-fab-area .mobile-fab,.gm-fab-area .gm-fab-tooltip,
+  .xp-floating-action,.xp-floating-action .xp-floating-tip{
+    transition:none!important;animation:none!important;
+  }
+}
+/* Dark theme: archive contrast and interactive affordances. */
+html[data-theme="dark"] .profile-archive .gm-archive-entry{background:#152438!important;border-color:#2b4256!important}
+html[data-theme="dark"] .profile-archive .gm-archive-entry h3{color:#e9f3fd!important}
+html[data-theme="dark"] .profile-archive .gm-archive-entry .gm-archive-meta{color:#adbed0!important}
+html[data-theme="dark"] .profile-archive .gm-archive-entry .gm-archive-actions{border-color:#32475b}
+html[data-theme="dark"] .profile-archive .gm-archive-entry .gm-archive-detail,
+html[data-theme="dark"] .profile-archive .gm-archive-entry .gm-archive-edit{
+  background:#203b51!important;border-color:#426a86!important;color:#b5e3ff!important;
+}
+html[data-theme="dark"] .profile-archive .gm-archive-entry .gm-archive-remove{
+  background:#342b3a!important;color:#ffaeb5!important;border-color:#5b404c!important;
+}
+html[data-theme="dark"] .profile-archive .gm-archive-entry .gm-archive-remove:hover{background:#522e40!important}
